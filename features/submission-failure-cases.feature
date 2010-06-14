@@ -6,9 +6,11 @@ Feature: Cases where packages fail to submit
     And a <package> package
     When submission is attempted on that package
     Then submission fails
+	And there is a record in the ops sip table for the package
     And there is an operations event for the submission
 	And the operations event denotes failure
     And the operations event notes field shows details for a <failure type>
+	And there is not a ingest wip in the workspace
     Examples:
 	
     |user|package|failure type|
