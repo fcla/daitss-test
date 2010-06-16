@@ -308,6 +308,12 @@ Given /^(a|an) (.*) package$/ do |n, package|
   when "special character in directory name"
     @package = "FDAD25oti_special_character"
 	
+  when "MARC descriptive metadata"
+    @package = "FDAD26dma_marc"
+	
+  when "MARC/MODS descriptive metadata"
+    @package = "FDAD26dmd_marc_mods"
+	
 	else
      pending "No definition for #{package} package"
 

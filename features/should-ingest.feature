@@ -6,9 +6,9 @@ Feature: Packages that should ingest correctly under DAITSS 2
     And a <package> package
     When submission is run on that package
     And ingest is run on that package
-    Then the package is present in the AIP store once
-    And there is an operations event for the submission
-    And there is an operations event for the ingest
+    Then there is an operations event for the start of ingest
+    And there is an operations event for the completion of ingest
+    And the package is present in the AIP store once
       Examples:
 
       |package|
