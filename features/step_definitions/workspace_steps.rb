@@ -11,7 +11,7 @@ Daitss::CONFIG.load_from_env
 DataMapper.setup :default, Daitss::CONFIG['database-url']
 
 REPO_ROOT = File.join File.dirname(__FILE__), '..', '..'
-SIP_DIR = File.join REPO_ROOT, "sips"
+SIP_DIRS = [File.join(REPO_ROOT, "sips"), ENV["AUX_SIP_PATH"]]
 SERVICES_DIR = File.join(File.dirname(ENV["CONFIG"]), "service")
 
 SUBMISSION_CLIENT_PATH = File.join SERVICES_DIR, "submission", "submit-filesystem.rb"
@@ -20,12 +20,10 @@ DISPATCH_WORKSPACE_BIN_PATH = File.join SERVICES_DIR, "request", "dispatch-works
 
 WORKSPACE = Workspace.new(Daitss::CONFIG['workspace']).path
 
-
 def run_submit package, expect_success = true, username = @username, password = @password
   raise "No users created" unless @username and @password
 
-  sip_path = File.join SIP_DIR, package
-  raise "Specified SIP not found" unless File.directory? sip_path
+  sip_path = find_package package
 
   output = `#{SUBMISSION_CLIENT_PATH} --url #{Daitss::CONFIG['submission']} --package #{sip_path} --name #{package} --username #{username} --password #{password}`
   raise "Submission seems to have failed: #{output}" if ($?.exitstatus != 0 and expect_success == true)
@@ -122,6 +120,22 @@ def authorize_request use_aux_operator = true
 
   url = "#{Daitss::CONFIG['request']}/requests/#{@ieid}/withdraw/approve"
   `curl -v -X POST #{url} -u #{user}:#{pass} 2>&1`
+end
+
+# looks in all possible SIP_PATHS to see if package exists. Raises error if package not found, 
+# otherwise returns path to package
+
+def find_package package
+  
+  SIP_DIRS.each do |sip_dir|
+    next unless sip_dir
+
+    if File.directory? File.join sip_dir, package
+      return File.join sip_dir, package
+    end
+  end
+
+  raise "Package #{package} not found on disk"
 end
 
 # GIVEN
