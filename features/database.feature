@@ -1,5 +1,19 @@
 Feature: database population on various packages
 
+Scenario: a good sip
+	Given an archive operator
+	And a workspace
+	And a ateam package
+	When submission is run on that package
+	And ingest is run on that package
+	Then I should have a datafile named ateam.xml
+    And there is an submit event for the intentity
+    And there is an ingest event for the intentity
+	And the datafile should be associated with a describe event
+	And the datafile should be associated with a virus check event
+	And there is a SHA-1 checksum for the datafile
+	And there is a MD5 checksum for the datafile
+	
 Scenario: an sip containing a wave file
 	Given an archive operator
     And a workspace
@@ -8,14 +22,13 @@ Scenario: an sip containing a wave file
     And ingest is run on that package
 	Then I should have a datafile named obj1.wav
 	And the datafile should be associated an audio stream
-	And the datafile should be associated with a normalization event
+	# And the datafile should be associated with a normalize event
 	And there should be a normalization relationship links to normalized file
 	And the normalized file should be associated with an audio stream
 	And the normalized file should have archive as origin
 	And the original file should have depositor as origin
 	
 Scenario: an sip containing a pdf with many images
-	
 	Given an archive operator
     And a workspace
     And a etd package
