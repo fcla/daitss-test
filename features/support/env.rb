@@ -1,5 +1,6 @@
 require 'spec/expectations'
 require 'daitss2'
+require 'ruby-debug'
 
 Before do
   DataMapper.auto_migrate!

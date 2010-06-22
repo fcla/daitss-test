@@ -9,6 +9,7 @@ require 'workspace'
 # setup config
 Daitss::CONFIG.load_from_env
 DataMapper.setup :default, Daitss::CONFIG['database-url']
+DataMapper::Logger.new STDOUT, :debug
 
 REPO_ROOT = File.join File.dirname(__FILE__), '..', '..'
 SIP_DIR = File.join REPO_ROOT, "sips"
@@ -308,11 +309,29 @@ Given /^(a|an) (.*) package$/ do |n, package|
   when "special character in directory name"
     @package = "FDAD25oti_special_character"
 	
-  when "MARC descriptive metadata"
-    @package = "FDAD26dma_marc"
-	
-  when "MARC/MODS descriptive metadata"
-    @package = "FDAD26dmd_marc_mods"
+  when "wave"
+    @package = "wave"
+
+  when "etd"
+    @package = "etd"
+
+  when "haskell-nums-pdf"
+    @package = "haskell-nums-pdf"
+
+  when "jpeg"
+    @package = "jpeg"
+
+  when "jpeg2000"
+    @package = "jpeg2000"
+
+  when "geotiff"
+    @package = "geotiff"
+
+  when "protectedpdf"
+    @package = "protectedpdf"
+
+  when "ateam"
+    @package = "ateam"
 	
   when "Word Document"
     @package = "FDAD2_doc"
