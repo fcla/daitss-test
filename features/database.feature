@@ -86,10 +86,10 @@ Scenario: an sip containing a pdf with an anomaly and an inhibitor
 Scenario: an sip containing a xml with broken links
 	Given an archive operator
 	And a workspace
-	And a ateam package
+	And a ateam-brokenlink package
 	When submission is run on that package
 	And ingest is run on that package
-	Then I should have a datafile named ateam.xml
+	Then I should have a datafile named UF00003061.xml
 	And the datafile should be associated a text stream
 	And it should have a broken link
 

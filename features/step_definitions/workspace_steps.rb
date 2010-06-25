@@ -333,6 +333,9 @@ Given /^(a|an) (.*) package$/ do |n, package|
   when "ateam"
     @package = "ateam"
 	
+  when "ateam-brokenlink"
+    @package = "ateam-brokenlink"
+  
   when "Word Document"
     @package = "FDAD2_doc"
 	
