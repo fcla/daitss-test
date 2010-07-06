@@ -1,20 +1,19 @@
 Feature: Cases where packages submit successfully
 
-  Scenario: Submission of a good package by an operator
+  Scenario Outline: Submission of a good package by an operator
     Given an archive operator
     And a workspace
     And a <package> package
     When submission is run on that package
     Then there is an record in the submitted sips table
-	And submitted sips tables shows package <package_name>
-	And records <package_file> files
-	And records <PRJ_ID> Project ID
+   	And submitted sips tables shows package <package_name>
+	  And records <package_file> files
+	  And records <PRJ_ID> Project ID
     And records <package_size> for package size
     And there is an operations event for the submission
-	And the operations event denotes success
-	And there is a ingest wip in the workspace
+	  And the operations event denotes success
+	  And there is a ingest wip in the workspace
     Examples:
-	
     |package|package_name|package_file|PRJ_ID|package_size|
     |empty content file|FDAD27coa_empty_content|2|PRJ|1270|
     |content not described|FDAD27cob_not_described|10|PRJ|790753|
