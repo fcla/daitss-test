@@ -131,7 +131,7 @@ def find_package package
   SIP_DIRS.each do |sip_dir|
     next unless sip_dir
 
-    if File.directory? File.join sip_dir, package
+    if File.exists? File.join sip_dir, package
       return File.join sip_dir, package
     end
   end
