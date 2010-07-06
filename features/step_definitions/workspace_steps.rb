@@ -347,6 +347,57 @@ Given /^(a|an) (.*) package$/ do |n, package|
   when "ateam"
     @package = "ateam"
 	
+  when "ateam-brokenlink"
+    @package = "ateam-brokenlink"
+  
+  when "Word Document"
+    @package = "FDAD2_doc"
+	
+  when "JPEG2000"
+    @package = "FDAD2_jp2"
+	
+  when "JPG"
+    @package = "FDAD2_jpg"
+	
+  when "Database"
+    @package = "FDAD2_mdb"
+	
+  when "MPG"
+    @package = "FDAD2_mpg"
+	
+  when "PDF 1.3"
+    @package = "FDAD2_pdf_13"
+  
+  when "PDF 1.4"
+    @package = "FDAD2_pdf_14"
+	
+  when "PDF 1.5"
+    @package = "FDAD2_pdf_15"
+	
+  when "PDF 1.6"
+    @package = "FDAD2_pdf_16"
+	
+  when "PNG"
+    @package = "FDAD2_png"
+	
+  when "PPT"
+    @package = "FDAD2_ppt"
+	
+  when "TIFF 4"
+    @package = "FDAD2_tif_4"
+	
+  when "TIFF 5"
+    @package = "FDAD2_tif_5"
+	 
+  when "TIFF 6"
+    @package = "FDAD2_tif_6"
+	
+  when "WAV"
+    @package = "FDAD2_wav"
+	
+  when "XML"
+    @package = "FDAD2_xml_mets"
+	
 	else
      pending "No definition for #{package} package"
 
