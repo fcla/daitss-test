@@ -564,4 +564,23 @@ Then /^there is a record in the ops sip table for the package$/ do
   raise "No record for sip found for IEID #{@ieid}" unless SubmittedSip.first(:ieid => @ieid)
 end
 
+Then /^submitted sips table shows package name (.*), number of files (.*), and package size (.*)$/ do |name, number_of_files, package_size|
+  sip = SubmittedSip.first(:ieid => @ieid)
+
+  raise "package name in submitted sip table (#{sip.package_name}) doesn't match #{name}" unless sip.package_name == name
+  raise "number of files in submitted sip table (#{sip.number_of_datafiles}) doesn't match #{number_of_files}" unless sip.number_of_datafiles == number_of_files.to_i
+  raise "package size in submitted sip table (#{sip.package_size}) doesn't match #{package_size}" unless sip.package_size == package_size.to_i
+end
+
+Then /^the submission operations event denotes reject and shows details for a (.*)$/ do |notes_field_snippet|
+  event = OperationsEvent.first(:submitted_sip => {:ieid => @ieid}, :event_name => "Package Submission")
+
+  raise "No op event found" unless event
+  raise "Op event doesn't denote failure" unless event.notes =~ /outcome: reject/
+  raise "Op event doesn't show expected detail: expected string '#{notes_field_snippet}', found: '#{event.notes}'" unless event.notes =~ /#{notes_field_snippet}/
+end
+
+Then /^there is not a wip in the workspace$/ do
+  raise "Wip found in workspace for IEID #{@ieid}" if File.directory? File.join(WORKSPACE.path, @ieid)
+end
 
