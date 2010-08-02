@@ -12,7 +12,7 @@ DataMapper.setup :default, Daitss::CONFIG['database-url']
 DataMapper::Logger.new STDOUT, :debug
 
 REPO_ROOT = File.join File.dirname(__FILE__), '..', '..'
-SIP_DIR = File.join REPO_ROOT, "sips"
+SIP_DIRS = [File.join(REPO_ROOT, "sips"), ENV["AUX_SIP_PATH"]]
 SERVICES_DIR = File.join(File.dirname(ENV["CONFIG"]), "service")
 
 SUBMISSION_CLIENT_PATH = File.join SERVICES_DIR, "submission", "submit-filesystem.rb"
@@ -21,12 +21,10 @@ DISPATCH_WORKSPACE_BIN_PATH = File.join SERVICES_DIR, "request", "dispatch-works
 
 WORKSPACE = Workspace.new(Daitss::CONFIG['workspace']).path
 
-
 def run_submit package, expect_success = true, username = @username, password = @password
   raise "No users created" unless @username and @password
 
-  sip_path = File.join SIP_DIR, package
-  raise "Specified SIP not found" unless File.directory? sip_path
+  sip_path = find_package package
 
   output = `#{SUBMISSION_CLIENT_PATH} --url #{Daitss::CONFIG['submission']} --package #{sip_path} --name #{package} --username #{username} --password #{password}`
   raise "Submission seems to have failed: #{output}" if ($?.exitstatus != 0 and expect_success == true)
@@ -123,6 +121,22 @@ def authorize_request use_aux_operator = true
 
   url = "#{Daitss::CONFIG['request']}/requests/#{@ieid}/withdraw/approve"
   `curl -v -X POST #{url} -u #{user}:#{pass} 2>&1`
+end
+
+# looks in all possible SIP_PATHS to see if package exists. Raises error if package not found, 
+# otherwise returns path to package
+
+def find_package package
+  
+  SIP_DIRS.each do |sip_dir|
+    next unless sip_dir
+
+    if File.exists? File.join sip_dir, package
+      return File.join sip_dir, package
+    end
+  end
+
+  raise "Package #{package} not found on disk"
 end
 
 # GIVEN
@@ -550,4 +564,23 @@ Then /^there is a record in the ops sip table for the package$/ do
   raise "No record for sip found for IEID #{@ieid}" unless SubmittedSip.first(:ieid => @ieid)
 end
 
+Then /^submitted sips table shows package name (.*), number of files (.*), and package size (.*)$/ do |name, number_of_files, package_size|
+  sip = SubmittedSip.first(:ieid => @ieid)
+
+  raise "package name in submitted sip table (#{sip.package_name}) doesn't match #{name}" unless sip.package_name == name
+  raise "number of files in submitted sip table (#{sip.number_of_datafiles}) doesn't match #{number_of_files}" unless sip.number_of_datafiles == number_of_files.to_i
+  raise "package size in submitted sip table (#{sip.package_size}) doesn't match #{package_size}" unless sip.package_size == package_size.to_i
+end
+
+Then /^the submission operations event denotes reject and shows details for a (.*)$/ do |notes_field_snippet|
+  event = OperationsEvent.first(:submitted_sip => {:ieid => @ieid}, :event_name => "Package Submission")
+
+  raise "No op event found" unless event
+  raise "Op event doesn't denote failure" unless event.notes =~ /outcome: reject/
+  raise "Op event doesn't show expected detail: expected string '#{notes_field_snippet}', found: '#{event.notes}'" unless event.notes =~ /#{notes_field_snippet}/
+end
+
+Then /^there is not a wip in the workspace$/ do
+  raise "Wip found in workspace for IEID #{@ieid}" if File.directory? File.join(WORKSPACE.path, @ieid)
+end
 
