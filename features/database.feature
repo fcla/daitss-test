@@ -6,7 +6,7 @@ Scenario: a good sip
 	And a ateam package
 	When submission is run on that package
 	And ingest is run on that package
-	Then I should have a datafile named ateam.xml
+	Then I should have a datafile named sip-files/ateam.xml
     And there is an submit event for the intentity
     And there is an ingest event for the intentity
 	And the datafile should be associated with a describe event
@@ -20,7 +20,7 @@ Scenario: an sip containing a wave file
     And a wave package
     When submission is run on that package
     And ingest is run on that package
-	Then I should have a datafile named obj1.wav
+	Then I should have a datafile named sip-files/obj1.wav
 	And the datafile should be associated an audio stream
 	# And the datafile should be associated with a normalize event
 	And there should be a normalization relationship links to normalized file
@@ -34,7 +34,7 @@ Scenario: an sip containing a pdf with many images
     And a etd package
     When submission is run on that package
     And ingest is run on that package
-	Then I should have a datafile named etd.pdf
+	Then I should have a datafile named sip-files/etd.pdf
  	And I should have 19 image bitstreams
 
 Scenario: an sip containing a pdf with embedded fonts
@@ -43,7 +43,7 @@ Scenario: an sip containing a pdf with embedded fonts
     And a haskell-nums-pdf package
     When submission is run on that package
     And ingest is run on that package
-	Then I should have a datafile named Haskell98numbers.pdf
+	Then I should have a datafile named sip-files/Haskell98numbers.pdf
 	And I should have a document with embedded fonts
 	
 Scenario: an sip containing a jpeg file
@@ -52,7 +52,7 @@ Scenario: an sip containing a jpeg file
     And a jpeg package
     When submission is run on that package
     And ingest is run on that package
-	Then I should have a datafile named DSC04975_small.jpg
+	Then I should have a datafile named sip-files/DSC04975_small.jpg
 	And the datafile should be associated an image stream
 
 Scenario: an sip containing a jp2 file
@@ -61,7 +61,7 @@ Scenario: an sip containing a jp2 file
 	And a jpeg2000 package
 	When submission is run on that package
 	And ingest is run on that package
-	Then I should have a datafile named WF00010502.jp2
+	Then I should have a datafile named sip-files/WF00010502.jp2
 	And there should be an image for bitstream in the datafile
 
 Scenario: an sip containing a geotiff file
@@ -70,7 +70,7 @@ Scenario: an sip containing a geotiff file
 	And a geotiff package
 	When submission is run on that package
 	And ingest is run on that package
- 	Then I should have a datafile named tjpeg.tif
+ 	Then I should have a datafile named sip-files/tjpeg.tif
  	And there should be an image for bitstream in the datafile	
 	
 Scenario: an sip containing a pdf with an anomaly and an inhibitor
@@ -79,7 +79,7 @@ Scenario: an sip containing a pdf with an anomaly and an inhibitor
 	And a protectedpdf package
 	When submission is run on that package
 	And ingest is run on that package
-	Then I should have a datafile named pwprotected.pdf
+	Then I should have a datafile named sip-files/pwprotected.pdf
 	And it should have an inhibitor
 	And it should have an anomaly
 
@@ -89,7 +89,7 @@ Scenario: an sip containing a xml with broken links
 	And a ateam-brokenlink package
 	When submission is run on that package
 	And ingest is run on that package
-	Then I should have a datafile named UF00003061.xml
+	Then I should have a datafile named sip-files/UF00003061.xml
 	And the datafile should be associated a text stream
 	And it should have a broken link
 

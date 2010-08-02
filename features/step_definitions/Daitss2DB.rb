@@ -118,6 +118,6 @@ Then /^it should have an anomaly$/ do
 end
 
 Then /^it should have a broken link$/ do
-  pending # brokenLink = BrokenLink.first(:datafile_id => @dfid)
-  pendign # brokenLink.should_not be_nil
+  brokenLink = BrokenLink.first(:datafile_id => @dfid)
+  brokenLink.should_not be_nil
 end
