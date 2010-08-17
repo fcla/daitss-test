@@ -1,5 +1,6 @@
 require 'spec/expectations'
-require 'daitss2'
+require 'daitss/db/fast'
+require 'daitss/db/ops'
 require 'ruby-debug'
 
 Before do

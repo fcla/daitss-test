@@ -1,7 +1,6 @@
-require 'daitss/db/ops/operations_agents'
-require 'daitss/db/ops/operations_events'
-require 'daitss/db/ops/sip'
+require 'daitss/db/ops'
 require 'daitss/db/ops/aip'
+require 'daitss/db/fast'
 require 'daitss/config'
 require 'fileutils'
 require 'daitss/proc/workspace'
@@ -9,14 +8,13 @@ require 'daitss/proc/workspace'
 # setup config
 Daitss::CONFIG.load_from_env
 DataMapper.setup :default, Daitss::CONFIG['database-url']
-DataMapper::Logger.new STDOUT, :debug
 
 REPO_ROOT = File.join File.dirname(__FILE__), '..', '..'
 SIP_DIRS = [File.join(REPO_ROOT, "sips"), ENV["AUX_SIP_PATH"]]
 SERVICES_DIR = File.join(File.dirname(ENV["CONFIG"]), "service")
 
 SUBMISSION_CLIENT_PATH = File.join SERVICES_DIR, "submission", "submit-filesystem.rb"
-INGEST_BIN_PATH = "ingest"
+INGEST_BIN_PATH = "dbin ingest"
 DISPATCH_WORKSPACE_BIN_PATH = File.join SERVICES_DIR, "request", "dispatch-workspace.rb"
 
 WORKSPACE = Workspace.new(Daitss::CONFIG['workspace']).path
@@ -764,10 +762,12 @@ end
 Then /^the ingest time is output$/ do
   sip = SubmittedSip.first(:ieid => @ieid)
 
-  start_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "Ingest Start")
-  stop_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "Ingest Start")
+  start_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "ingest started")
+  stop_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "ingest finished")
 
-  puts start_event.inspect
-  puts stop_event.inspect
+  start_time = Time.parse(start_event.timestamp.to_s)
+  stop_time = Time.parse(stop_event.timestamp.to_s)
+
+  puts "@@@ Ingest elapsed time for package #{@package}: " + (stop_time - start_time).to_s
 end
 
