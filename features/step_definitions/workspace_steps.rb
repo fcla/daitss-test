@@ -1,10 +1,10 @@
-require 'db/operations_agents'
-require 'db/operations_events'
-require 'db/sip'
-require 'aip'
+require 'daitss/db/ops/operations_agents'
+require 'daitss/db/ops/operations_events'
+require 'daitss/db/ops/sip'
+require 'daitss/db/ops/aip'
 require 'daitss/config'
 require 'fileutils'
-require 'workspace'
+require 'daitss/proc/workspace'
 
 # setup config
 Daitss::CONFIG.load_from_env
@@ -397,7 +397,184 @@ Given /^(a|an) (.*) package$/ do |n, package|
 	
   when "XML"
     @package = "FDAD2_xml_mets"
+
+  when "sizes_under_10files_1"
+    @package = "UF00001634_00001"
 	
+  when "sizes_under_10files_2"
+    @package = "UF00091363_00005"
+
+  when "sizes_under_10files_3"
+    @package = "UF00001634_00001"
+
+  when "sizes_10-19files_1"
+    @package = "UF00094886_00005"
+
+  when "sizes_10-19files_2"
+    @package = "UF00087344_00020"
+
+  when "sizes_10-19files_3"
+    @package = "UF00017997_00001"
+
+  when "sizes_20-29files_1"
+    @package = "UF00000081_16435"
+
+  when "sizes_20-29files_2"
+    @package = "UF00091263_00198"
+
+  when "sizes_20-29files_3"
+    @package = "WL00003184_00001"
+
+  when "sizes_30-39files_1"
+    @package = "UF00028298_02187"
+
+  when "sizes_30-39files_2"
+    @package = "UF00048742_00294"
+
+  when "sizes_30-39files_3"
+    @package = "UF00075814_00002"
+
+  when "sizes_40-49files_1"
+    @package = "UF00000081_09740"
+
+  when "sizes_40-49files_2"
+    @package = "UF00072699_00708"
+
+  when "sizes_40-49files_3"
+    @package = "UF00073688_00252"
+
+  when "sizes_50-59files_1"
+    @package = "UF00028298_00057"
+
+  when "sizes_50-59files_2"
+    @package = "UF00079945_00073"
+
+  when "sizes_50-59files_3"
+    @package = "UF00087294_00560"
+
+  when "sizes_60-69files_1"
+    @package = "AM00000242_00051"
+
+  when "sizes_60-69files_2"
+    @package = "UF00067675_00001"
+
+  when "sizes_60-69files_3"
+    @package = "UF00075924_00033"
+
+  when "sizes_70-79files_1"
+    @package = "UF00055105_00001"
+
+  when "sizes_70-79files_2"
+    @package = "UF00075911_00696"
+
+  when "sizes_70-79files_3"
+    @package = "UF00085924_00001"
+
+  when "sizes_80-89files_1"
+    @package = "SF00000129"
+
+  when "sizes_80-89files_2"
+    @package = "UF00079944_00289"
+
+  when "sizes_80-89files_3"
+    @package = "UF00100262_00001"
+
+  when "sizes_90-99files_1"
+    @package = "UF00014569_00001"
+
+  when "sizes_90-99files_2"
+    @package = "UF00027604_00018"
+
+  when "sizes_90-99files_3"
+    @package = "UF00028419_02887"
+
+  when "sizes_100-199files_1"
+    @package = "UF00001024_00001"
+
+  when "sizes_100-199files_2"
+    @package = "UF00001565_02560"
+
+  when "sizes_100-199files_3"
+    @package = "UF00075911_00161"
+
+  when "sizes_200-299files_1"
+    @package = "AM00000319_00011"
+
+  when "sizes_200-299files_2"
+    @package = "UF00023252_00001"
+
+  when "sizes_200-299files_3"
+    @package = "UF00084249_00002"
+
+  when "sizes_300-399files_1"
+    @package = "UF00001565_01520"
+
+  when "sizes_300-399files_2"
+    @package = "UF00028296_00204"
+
+  when "sizes_300-399files_3"
+    @package = "UF00071726_00010"
+
+  when "sizes_400-499files_1"
+    @package = "UF00014989_00001"
+
+  when "sizes_400-499files_2"
+    @package = "UF00076217_00029"
+
+  when "sizes_400-499files_3"
+    @package = "UF00080613_00004"
+
+  when "sizes_500-599files_1"
+    @package = "UF00000445_00001"
+
+  when "sizes_500-599files_2"
+    @package = "UF00075939_00006"
+
+  when "sizes_500-599files_3"
+    @package = "UF00075961_00001"
+
+  when "sizes_1000-1999files_1"
+    @package = "UF00016653_00001"
+
+  when "sizes_1000-1999files_2"
+    @package = "UF00085531_00001"
+
+  when "sizes_1000-1999files_3"
+    @package = "UF00099515_00001"
+
+  when "sizes_2000-2999files_1"
+    @package = "UF00001997_00001"
+
+  when "sizes_2000-2999files_2"
+    @package = "UF00055632_00001"
+
+  when "sizes_2000-2999files_3"
+    @package = "UF00073382_00001"
+
+  when "sizes_3000-3999files_1"
+    @package = "UF00074933_00001"
+
+  when "sizes_3000-3999files_2"
+    @package = "UF00089237_00001"
+
+  when "sizes_3000-3999files_3"
+    @package = "UF00094187_00002"
+
+  when "sizes_4000-4999files_1"
+    @package = "UF00015454_00037"
+
+  when "sizes_4000-4999files_2"
+    @package = "UF00067435_00001"
+
+  when "sizes_4000-4999files_3"
+    @package = "UF00073608_00001"
+
+  when "sizes_5000-5999files_1"
+    @package = "UF00023701_00002"
+
+  when "sizes_5000-5999files_2"
+    @package = "UF00053733_00004"
+
 	else
      pending "No definition for #{package} package"
 
@@ -582,5 +759,15 @@ end
 
 Then /^there is not a wip in the workspace$/ do
   raise "Wip found in workspace for IEID #{@ieid}" if File.directory? File.join(WORKSPACE.path, @ieid)
+end
+
+Then /^the ingest time is output$/ do
+  sip = SubmittedSip.first(:ieid => @ieid)
+
+  start_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "Ingest Start")
+  stop_event = OperationsEvent.first(:submitted_sip => sip, :event_name => "Ingest Start")
+
+  puts start_event.inspect
+  puts stop_event.inspect
 end
 
