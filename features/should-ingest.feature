@@ -1,14 +1,18 @@
 Feature: Packages that should ingest correctly under DAITSS 2
 
   Scenario Outline: The submission and ingest of a package with a copy of itself inside itself
-    Given an archive operator
-    And a workspace
-    And a <package> package
-    When submission is run on that package
-    And ingest is run on that package
-    Then there is an operations event for the start of ingest
-    And there is an operations event for the completion of ingest
-    And the package is present in the AIP store once
+    Given I goto "/submit"
+    When I specifically select a <package> sip to upload
+    And I press "Submit"
+    And I goto "/workspace"
+    And I choose "start"
+    And I press "Update"
+    And all running wips have finished 
+    Then the package is present in the aip store
+    And the package is present in storage
+    And there is an event for submit
+    And there is an event for ingest started
+    And there is an event for ingest finished
       Examples:
 
       |package|

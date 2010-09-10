@@ -62,12 +62,12 @@ end
 
 Then /^there is an (.+) event for the intentity$/ do |eventType|
   intentity = Intentity.first()
-  event = Event.first(:relatedObjectId => intentity.id, :e_type => eventType)
+  event = PreservationEvent.first(:relatedObjectId => intentity.id, :e_type => eventType)
   event.should_not be_nil
 end
 
 Then /^the datafile should be associated with a (.+) event$/ do |eventType|
-  event = Event.first(:relatedObjectId => @dfid, :e_type => eventType)
+  event = PreservationEvent.first(:relatedObjectId => @dfid, :e_type => eventType)
   event.should_not be_nil
 end
 

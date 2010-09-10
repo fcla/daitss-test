@@ -2,14 +2,15 @@ Feature: A submission and subsequent ingest operation of a known good package
   should result in a successful ingest. 
 
   Scenario Outline: A submission and ingest of a known good package by an operator
-    Given an archive operator
-    And a workspace
-    And a <package> package
-    When submission is run on that package
-    And ingest is run on that package
+    Given I goto "/submit"
+    When I specifically select a <package> sip to upload
+    And I press "Submit"
+    And I goto "/workspace"
+    And I choose "start"
+    And I press "Update"
+    And all running wips have finished 
     Then the ingest time is output
     Examples:
-	
 	|package|
 	|good|
   |sizes_under_10files_1|

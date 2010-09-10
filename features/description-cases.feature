@@ -1,17 +1,19 @@
 Feature: Packages that should ingest correctly under DAITSS 2
 
   Scenario Outline: The submission and ingest of a package for description testing
-    Given an archive operator
-    And a workspace
-    And a <package> package
-    When submission is run on that package
-    And ingest is run on that package
-    Then there is a record of <format_name> format name for the file <original_file_name>
+	Given I goto "/submit"
+  When I specifically select a <package> sip to upload
+  And I press "Submit"
+  And I goto "/workspace"
+  And I choose "start"
+  And I press "Update"
+  And all running wips have finished 
+  Then there is a record of <format_name> format name for the file <original_file_name>
       Examples:
 
-      |package|format_name|original_file_name|
-      |Word Document|Microsoft Word for Windows Document|abstract.doc|
-      |JPEG2000|JPEG2000|00021.jp2|
+    |package|format_name|original_file_name|
+    |Word Document|Microsoft Word for Windows Document|abstract.doc|
+    |JPEG2000|JPEG2000|00021.jp2|
 	  |JPG|JPEG File Interchange Format|DSC04975_small.jpg|
 	  |Database|Microsoft Access Database|surveydata.mdb|
 	  |MPG|MPEG-1 Video Format|jitter.mpg|

@@ -1,106 +1,105 @@
-require 'spec/expectations'
-require 'daitss/db/fast'
-require 'daitss/db/ops'
+require 'rubygems'
+require 'bundler/setup'
+require 'daitss/archive'
+
 require 'ruby-debug'
 
+raise "path to core repository not set in environment variable PATH_TO_CORE" unless ENV["PATH_TO_CORE"]
+path_to_core = ENV["PATH_TO_CORE"]
+
+app_file = File.join path_to_core, "app.rb"
+require app_file
+
+# Force the application name because polyglot breaks the auto-detection logic.
+Sinatra::Application.app_file = app_file
+Sinatra::Application.set :environment, :test
+
+require 'net/http'
+require 'spec/expectations'
+require 'rack/test'
+require 'webrat'
+require 'nokogiri'
+
+require 'daitss/model'
+require 'daitss/archive'
+
+Webrat.configure { |config| config.mode = :rack }
+
+class MyWorld
+  include Rack::Test::Methods
+  include Webrat::Methods
+  include Webrat::Matchers
+
+  Webrat::Methods.delegate_to_session :response_code, :response_body
+
+  def app
+    Sinatra::Application
+  end
+
+  def fixture name
+    File.join File.dirname(__FILE__), '..', 'fixtures', name
+  end
+
+  def sip name
+    File.join File.dirname(__FILE__), '..', 'fixtures', name
+  end
+
+  def sip_tarball name
+    path = sip name
+    tar = %x{tar -c -C #{File.dirname path} -f - #{File.basename path} }
+    raise "tar did not work" if $?.exitstatus != 0
+    tar
+  end
+
+  def sips
+    @sips ||= []
+  end
+
+  def submit name
+    a = Archive.new
+    zip_path = fixture name
+    package = a.submit zip_path, Operator.get('root')
+    raise "test submit failed for #{name}:\n\n#{package.events.last.notes}" if package.events.first :name => 'reject'
+    sips << { :sip => package.sip.name, :wip => package.id }
+    a.workspace[package.id]
+  end
+
+  def empty_out_workspace
+    ws = Archive.new.workspace
+
+    ws.each do |wip|
+      wip.stop if wip.running?
+      FileUtils.rm_r wip.path
+    end
+
+  end
+
+end
+
+World{MyWorld.new}
+
 Before do
-  DataMapper.auto_migrate!
+  Daitss::CONFIG.load_from_env
+  Archive.create_work_directories
+  Archive.setup_db
+  Archive.init_db
+  Archive.create_initial_data
 
-  a = add_account
-  add_account "FDA", "FDA"
-  add_project a
-  add_operator a
+  a = Account.new :id => 'ACT', :description => 'the description'
+  p = Project.new :id => 'PRJ', :description => 'the description', :account => a
+  a.save or 'cannot save ACT'
+  p.save or 'cannot save PRJ'
+
+  $cleanup = []
 end
 
-module AdminHelpers
+After do
+  ws = Archive.new.workspace
 
-  def add_account name = "ACT", code = "ACT"
-    a = Account.new
-
-    a.attributes = {
-      :name => name,
-      :code => code
-    }
-
-    a.save!
-    return a
+  ws.each do|w|
+    w.kill if w.running?
+    FileUtils.rm_rf w.path
   end
 
-  def add_project account,  name = "PRJ", code = "PRJ"
-    p = Project.new
-    p.attributes = { :name => name,
-                     :code => code }
-
-    p.account = account
-    p.save!
-
-    return p
-  end
-
-  def add_operator account, identifier = "operator", password = "operator"
-    o = Operator.new
-
-    o.attributes = {
-      :description => "operator",
-      :active_start_date => Time.at(0),
-      :active_end_date => Time.now + (86400 * 365),
-      :identifier => identifier,
-      :first_name => "Op",
-      :last_name => "Perator",
-      :email => "operator@ufl.edu",
-      :phone => "666-6666",
-      :address => "FCLA"
-    }
-
-    o.account = account
-    k = AuthenticationKey.new
-    k.attributes = { :auth_key => Digest::SHA1.hexdigest(password) }
-    o.authentication_key = k
-    o.save!
-    return o
-  end
-
-
-  def add_contact account, permissions = [:disseminate, :withdraw, :peek, :submit], identifier = "contact", password = "contact"
-    c = Contact.new
-
-    c.attributes = {
-      :description => "contact",
-      :active_start_date => Time.at(0),
-      :active_end_date => Time.now + (86400 * 365),
-      :identifier => identifier,
-      :first_name => "Foo",
-      :last_name => "Bar",
-      :email => "foobar@ufl.edu",
-      :phone => "555-5555",
-      :address => "123 Toontown",
-      :permissions => permissions
-    }
-
-    c.account = account
-    j = AuthenticationKey.new
-    j.attributes = { :auth_key => Digest::SHA1.hexdigest(password) }
-    c.authentication_key = j
-    c.save!
-    return c
-  end
-
-  def add_intentity ieid
-    i = Intentity.new
-    project = Project.get(1)
-
-    i.attributes = { :id => ieid,
-      :original_name => "test package",
-      :entity_id => "test",
-      :volume => "1",
-      :issue => "1",
-      :title => "title" }
-
-    i.project = project
-    i.save!
-
-    return i
-  end
+  $cleanup.each { |f| FileUtils.rm_rf f }
 end
-
-World(AdminHelpers)

@@ -1,1 +1,1 @@
-This repository contains operations DAITSS 2 test cases.
+This repository contains operations DAITSS 2 test cases. It requires that $PATH_TO_CORE be set to the path to the DAITSS core repository.
