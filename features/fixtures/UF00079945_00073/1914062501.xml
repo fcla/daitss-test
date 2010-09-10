@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fcla fda="yes"?>
+<?fcla dl="no"?>
+<METS:mets OBJID="temp000076_09252" xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:ufdc="http://www.uflib.ufl.edu/digital/metadata/ufdc/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:daitss="http://www.fcla.edu/dls/md/daitss/" xsi:schemaLocation="http://www.loc.gov/METS/         http://www.loc.gov/standards/mets/mets.xsd          http://www.loc.gov/mods/v3         http://www.loc.gov/mods/v3/mods-3-2.xsd         http://www.uflib.ufl.edu/digital/metadata/ufdc/         http://www.uflib.ufl.edu/digital/metadata/ufdc/ufdc.xsd                 http://www.fcla.edu/dls/md/daitss/         http://www.fcla.edu/dls/md/daitss/daitss.xsd">
+<METS:metsHdr CREATEDATE="2008-05-24T08:12:22" ID="temp000076_09252" LASTMODDATE="2008-05-24T08:12:22" RECORDSTATUS="NEW">
+    <METS:agent ROLE="CREATOR" TYPE="ORGANIZATION"> 
+        <METS:name>iArchives</METS:name>
+    </METS:agent>
+</METS:metsHdr>
+<METS:dmdSec ID="DMD1">
+    <METS:mdWrap MDTYPE="MODS" MIMETYPE="text/xml" LABEL="Metadata Object Description Schema"> 
+        <METS:xmlData>
+            <mods:mods>
+                <mods:titleInfo>
+                    <mods:title>Orlando Morning Sentinel</mods:title>
+                </mods:titleInfo>
+                <mods:titleInfo type="uniform">
+                    <mods:title>Orlando Morning Sentinel</mods:title>
+                </mods:titleInfo>
+                <mods:originInfo>
+                    <mods:place>
+                           <mods:placeTerm type="text">Orlando, Fla.</mods:placeTerm>
+                    </mods:place>
+                    <mods:dateIssued>Jun 25, 1914</mods:dateIssued>
+                </mods:originInfo>
+                <mods:language>
+                    <mods:languageTerm type="text">English</mods:languageTerm>
+                </mods:language>
+                <mods:identifier type="NOTIS">AEK8841</mods:identifier>
+                <mods:subject>
+                    <mods:hierarchicalGeographic>
+                          <mods:continent>North America</mods:continent>
+                          <mods:country>United States of America</mods:country>
+                          <mods:state>Florida</mods:state>
+                          <mods:county>Orange</mods:county>
+                          <mods:city>Orlando</mods:city>
+                    </mods:hierarchicalGeographic>
+                </mods:subject>
+                <mods:location>
+                    <mods:physicalLocation>University of Florida</mods:physicalLocation>
+                    <mods:physicalLocation type="code">UF</mods:physicalLocation>
+                </mods:location>
+            </mods:mods>
+        </METS:xmlData>
+    </METS:mdWrap>
+</METS:dmdSec>
+<METS:dmdSec ID="DMD2">
+    <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="UFDC" MIMETYPE="text/xml" LABEL="University of Florida Digital Collections Metadata"> 
+        <METS:xmlData>
+            <ufdc:procParam>
+                <ufdc:Collection.Primary>FDNL1</ufdc:Collection.Primary>
+                <ufdc:SubCollection>FDNLN</ufdc:SubCollection>
+            </ufdc:procParam>
+            <ufdc:bibDesc>
+                <ufdc:BibID>temp000076</ufdc:BibID>
+                <ufdc:VID>09252</ufdc:VID>
+                <ufdc:Holding>
+                    <ufdc:statement code="UF">University of Florida</ufdc:statement>
+                    <ufdc:html>University of Florida</ufdc:html>
+                </ufdc:Holding>
+                <ufdc:Source>
+                    <ufdc:statement code="UF">University of Florida</ufdc:statement>
+                    <ufdc:html>University of Florida</ufdc:html>
+                </ufdc:Source>
+                <ufdc:Type>NEWSPAPER</ufdc:Type>
+            </ufdc:bibDesc>
+            <ufdc:serial>
+                <ufdc:SerialHierarchy level="1" order="1914">1914</ufdc:SerialHierarchy>
+                <ufdc:SerialHierarchy level="2" order="6">Jun</ufdc:SerialHierarchy>
+                <ufdc:SerialHierarchy level="3" order="25">25</ufdc:SerialHierarchy>
+            </ufdc:serial>
+        </METS:xmlData>
+    </METS:mdWrap>
+</METS:dmdSec>
+<METS:amdSec>
+    <METS:digiprovMD ID="AMD_DAITTS">
+        <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DAITTS">
+            <METS:xmlData>
+                <daitss:daitss>
+                    <daitss:AGREEMENT_INFO ACCOUNT="ACT" PROJECT="PRJ"/>
+                </daitss:daitss>
+            </METS:xmlData>
+        </METS:mdWrap>
+    </METS:digiprovMD>
+</METS:amdSec>
+<METS:fileSec> 
+
+    <METS:fileGrp> 
+         <METS:file GROUPID="G566" ID="E566" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0566.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G567" ID="E567" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0567.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G568" ID="E568" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0568.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G569" ID="E569" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0569.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G570" ID="E570" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0570.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G571" ID="E571" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0571.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G572" ID="E572" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0572.jp2"/> 
+        </METS:file> 
+         <METS:file GROUPID="G573" ID="E573" MIMETYPE="image/jp2"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0573.jp2"/> 
+        </METS:file> 
+    </METS:fileGrp> 
+    <METS:fileGrp> 
+         <METS:file GROUPID="G566" ID="T566" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0566.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G567" ID="T567" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0567.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G568" ID="T568" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0568.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G569" ID="T569" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0569.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G570" ID="T570" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0570.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G571" ID="T571" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0571.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G572" ID="T572" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0572.txt"/> 
+        </METS:file> 
+         <METS:file GROUPID="G573" ID="T573" MIMETYPE="text/plain"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0573.txt"/> 
+        </METS:file> 
+    </METS:fileGrp> 
+    <METS:fileGrp> 
+         <METS:file GROUPID="G566" ID="F566" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0566.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G567" ID="F567" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0567.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G568" ID="F568" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0568.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G569" ID="F569" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0569.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G570" ID="F570" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0570.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G571" ID="F571" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0571.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G572" ID="F572" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0572.tif"/> 
+        </METS:file> 
+         <METS:file GROUPID="G573" ID="F573" MIMETYPE="image/tiff 6.0"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0573.tif"/> 
+        </METS:file> 
+    </METS:fileGrp> 
+    <METS:fileGrp> 
+         <METS:file GROUPID="G566" ID="J566" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0566.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G567" ID="J567" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0567.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G568" ID="J568" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0568.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G569" ID="J569" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0569.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G570" ID="J570" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0570.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G571" ID="J571" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0571.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G572" ID="J572" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0572.jpg"/> 
+        </METS:file> 
+         <METS:file GROUPID="G573" ID="J573" MIMETYPE="image/jpeg"> 
+            <METS:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM" xlink:href="0573.jpg"/> 
+        </METS:file> 
+    </METS:fileGrp> 
+</METS:fileSec> 
+	<METS:structMap ID="STRUCT1" TYPE="mixed"> 
+	    <METS:div DMDID="DMD1 DMD2" LABEL="Orlando Morning Sentinel" ORDER="0" TYPE="main"> 
+ 				<METS:div ID="P566" LABEL="1" ORDER="1" TYPE="Page"> 
+					<METS:fptr FILEID="F566"/> 
+					<METS:fptr FILEID="T566"/> 
+					<METS:fptr FILEID="J566"/> 
+					<METS:fptr FILEID="E566"/> 
+	            </METS:div> 
+ 				<METS:div ID="P567" LABEL="2" ORDER="2" TYPE="Page"> 
+					<METS:fptr FILEID="F567"/> 
+					<METS:fptr FILEID="T567"/> 
+					<METS:fptr FILEID="J567"/> 
+					<METS:fptr FILEID="E567"/> 
+	            </METS:div> 
+ 				<METS:div ID="P568" LABEL="3" ORDER="3" TYPE="Page"> 
+					<METS:fptr FILEID="F568"/> 
+					<METS:fptr FILEID="T568"/> 
+					<METS:fptr FILEID="J568"/> 
+					<METS:fptr FILEID="E568"/> 
+	            </METS:div> 
+ 				<METS:div ID="P569" LABEL="4" ORDER="4" TYPE="Page"> 
+					<METS:fptr FILEID="F569"/> 
+					<METS:fptr FILEID="T569"/> 
+					<METS:fptr FILEID="J569"/> 
+					<METS:fptr FILEID="E569"/> 
+	            </METS:div> 
+ 				<METS:div ID="P570" LABEL="5" ORDER="5" TYPE="Page"> 
+					<METS:fptr FILEID="F570"/> 
+					<METS:fptr FILEID="T570"/> 
+					<METS:fptr FILEID="J570"/> 
+					<METS:fptr FILEID="E570"/> 
+	            </METS:div> 
+ 				<METS:div ID="P571" LABEL="6" ORDER="6" TYPE="Page"> 
+					<METS:fptr FILEID="F571"/> 
+					<METS:fptr FILEID="T571"/> 
+					<METS:fptr FILEID="J571"/> 
+					<METS:fptr FILEID="E571"/> 
+	            </METS:div> 
+ 				<METS:div ID="P572" LABEL="7" ORDER="7" TYPE="Page"> 
+					<METS:fptr FILEID="F572"/> 
+					<METS:fptr FILEID="T572"/> 
+					<METS:fptr FILEID="J572"/> 
+					<METS:fptr FILEID="E572"/> 
+	            </METS:div> 
+ 				<METS:div ID="P573" LABEL="8" ORDER="8" TYPE="Page"> 
+					<METS:fptr FILEID="F573"/> 
+					<METS:fptr FILEID="T573"/> 
+					<METS:fptr FILEID="J573"/> 
+					<METS:fptr FILEID="E573"/> 
+	            </METS:div> 
+ 
+        </METS:div>     </METS:structMap>
+	<METS:behaviorSec ID="VIEWS" LABEL="Options available to the user for viewing this item">
+    	<METS:behavior GROUPID="VIEWS" ID="VIEW1" STRUCTID="STRUCT1" LABEL="Default View">
+        	<METS:mechanism LABEL="Viewer for zoomable JPEG2000s" LOCTYPE="OTHER" OTHERLOCTYPE="UFDC Procedure" xlink:type="simple" xlink:title="JP2_Viewer"/>
+	    </METS:behavior>
+    	<METS:behavior GROUPID="VIEWS" ID="VIEW2" STRUCTID="STRUCT1" LABEL="Alternate View">
+        	<METS:mechanism LABEL="Viewer for JPEGs" LOCTYPE="OTHER" OTHERLOCTYPE="UFDC Procedure" xlink:type="simple" xlink:title="JPEG_Viewer"/>
+	    </METS:behavior>
+	</METS:behaviorSec>
+	<METS:behaviorSec ID="INTERFACES" LABEL="Banners or interfaces which this resource can appear under">
+    	<METS:behavior GROUPID="INTERFACES" ID="INT1" STRUCTID="STRUCT1" LABEL="Default Interface">
+        	<METS:mechanism LABEL="UFDC Interface" LOCTYPE="OTHER" OTHERLOCTYPE="UFDC Procedure" xlink:type="simple" xlink:title="UFDC_Interface_Loader"/>
+	    </METS:behavior>
+		<METS:behavior GROUPID="INTERFACES" ID="INT2" STRUCTID="STRUCT1" LABEL="Alternate Interface">
+			<METS:mechanism LABEL="FDNL Interface" LOCTYPE="OTHER" OTHERLOCTYPE="UFDC Procedure" xlink:type="simple" xlink:title="FDNL_Interface_Loader"/>
+		</METS:behavior>
+	</METS:behaviorSec>
+</METS:mets>

@@ -1,0 +1,76 @@
+<METS:mets  OBJID="FDAD2_pdf_16"
+   xmlns:METS="http://www.loc.gov/METS/" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:daitss="http://www.fcla.edu/dls/md/daitss/"  
+   xsi:schemaLocation="http://www.loc.gov/METS/ 
+		       http://www.loc.gov/standards/mets/version17/mets.v1-7.xsd 
+		       http://www.fcla.edu/dls/md/daitss/ 
+		       http://www.fcla.edu/dls/md/daitss/daitss.xsd 
+		       http://purl.org/dc/elements/1.1/ 
+		       http://dublincore.org/schemas/xmls/simpledc20021212.xsd">
+
+
+<METS:metsHdr CREATEDATE="2010-06-15T12:09:13-04:00" ID= "FDAD2_pdf_16" RECORDSTATUS="NEW">
+  <METS:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+    <METS:name>Florida Digital Archive</METS:name>
+  </METS:agent>
+</METS:metsHdr>
+
+
+<METS:dmdSec ID="DMD-1">
+<METS:mdWrap MIMETYPE="text/xml" MDTYPE="DC" LABEL="Simple Dublin Core">
+<METS:xmlData>
+
+<dc:title>PDF file test - 1.6 </dc:title><dc:creator>Lindsey</dc:creator><dc:subject> </dc:subject><dc:description> FDA DAITSS 2 Testing SIP - PDF file format </dc:description>
+</METS:xmlData>
+</METS:mdWrap>
+</METS:dmdSec>
+
+
+  <METS:amdSec>
+    <METS:digiprovMD ID="AMD_DAITTS">
+      <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="DAITTS">
+	<METS:xmlData>
+	  <daitss:daitss>
+	    <daitss:AGREEMENT_INFO ACCOUNT="FDA" PROJECT="FDA"/>
+
+	  </daitss:daitss>
+	</METS:xmlData>
+      </METS:mdWrap>
+    </METS:digiprovMD>
+  </METS:amdSec>
+
+
+  <METS:fileSec> 
+    <METS:fileGrp> 
+
+     
+        <METS:file ID="file-1" CHECKSUM="c33c2556a3c08d56ba65618d7ef43937" CHECKSUMTYPE="MD5">
+	<METS:FLocat LOCTYPE="URL" xlink:href="FDAD2_pdf_16.dc"/> 
+      </METS:file>
+     
+        <METS:file ID="file-2" CHECKSUM="c33991de06ff87e9dd0b76cd00264beb" CHECKSUMTYPE="MD5">
+	<METS:FLocat LOCTYPE="URL" xlink:href="Webb_Christina_M_200508_MA.pdf"/> 
+      </METS:file>
+     
+
+    </METS:fileGrp>
+  </METS:fileSec>
+
+  <METS:structMap>
+
+
+    <METS:div TYPE="Monograph" >   
+
+       
+	<METS:fptr FILEID="file-1"/>
+       
+	<METS:fptr FILEID="file-2"/>
+       
+
+      </METS:div>
+  </METS:structMap>
+</METS:mets>
+
