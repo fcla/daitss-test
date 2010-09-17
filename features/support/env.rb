@@ -41,12 +41,12 @@ class MyWorld
   end
 
   def sip name
-    if File.directory? File.dirname(__FILE__), '..', 'fixtures', name
+    if File.directory? File.join(File.dirname(__FILE__), '..', 'fixtures', name)
       File.join File.dirname(__FILE__), '..', 'fixtures', name
-    elsif File.directory? ENV["AUX_SIP_PATH"], name
+    elsif File.directory? File.join(ENV["AUX_SIP_PATH"], name)
       File.join ENV["AUX_SIP_PATH"], name
     else
-      raise "Package #{name} wasn't found in fixtures or #{ENV['AUX_SIP_PATH']}
+      raise "Package #{name} wasn't found in fixtures or #{ENV['AUX_SIP_PATH']}"
     end
 
   end
