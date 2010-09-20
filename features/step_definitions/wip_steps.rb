@@ -14,3 +14,15 @@ end
 Then /^in the progress section I should see a field for "([^\"]*)"$/ do |field|
   last_response.should have_selector("td:contains('#{field}')")
 end
+
+When /^I wait for it to finish$/ do
+  doc = Nokogiri::HTML last_response.body
+
+  while doc % 'h1:contains("running")'
+    sleep 0.5
+    visit current_url
+    doc = Nokogiri::HTML last_response.body
+  end
+
+  sleep 0.5
+end
