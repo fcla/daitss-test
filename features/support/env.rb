@@ -89,24 +89,7 @@ Before do
   Daitss::CONFIG.load_from_env
   Archive.create_work_directories
   Archive.setup_db
-  Archive.init_db
-  Archive.create_initial_data
-
-  a = Account.new :id => 'ACT', :description => 'the description'
-  p = Project.new :id => 'PRJ', :description => 'the description', :account => a
-  a.save or 'cannot save ACT'
-  p.save or 'cannot save PRJ'
 
   $cleanup = []
 end
 
-After do
-  ws = Archive.new.workspace
-
-  ws.each do|w|
-    w.kill if w.running?
-    FileUtils.rm_rf w.path
-  end
-
-  $cleanup.each { |f| FileUtils.rm_rf f }
-end
