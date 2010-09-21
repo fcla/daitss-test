@@ -11,6 +11,12 @@ When /^I press "([^\"]*)"$/ do |name|
 end
 
 When /^I click on "([^\"]*)"$/ do |link|
+  if link == "ingesting"
+    doc = Nokogiri::HTML last_response.body
+    if doc % 'h1:contains("rejected")'
+      raise "Package rejected: #{Event.first(:name => "reject", :order => [id.desc])}"
+    end
+  end
   click_link link
 end
 
