@@ -1,14 +1,14 @@
 Feature: Packages that should ingest correctly under DAITSS 2
 
   Scenario Outline: The submission and ingest of a package for description testing
-	Given I goto "/submit"
-  When I specifically select a <package> sip to upload
-  And I press "Submit"
-  And I goto "/workspace"
-  And I choose "start"
-  And I press "Update"
-  And all running wips have finished 
-  Then there is a record of <format_name> format name for the file <original_file_name>
+    Given I goto "/submit"
+    When I specifically select a <package> sip to upload
+    And I press "Submit"
+    And I click on "ingesting"
+    And I choose "start"
+    And I press "Update"
+    And I wait for it to finish
+    Then there is a record of <format_name> format name for the file <original_file_name>
       Examples:
 
     |package|format_name|original_file_name|

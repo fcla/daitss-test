@@ -9,7 +9,6 @@ Feature: A submission and subsequent ingest operation of a known good package
     And I choose "start"
     And I press "Update"
     And I wait for it to finish
-    Then the ingest time is output
     Examples:
 	|package|
 	|good|

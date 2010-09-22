@@ -19,10 +19,10 @@ When /^I wait for it to finish$/ do
   doc = Nokogiri::HTML last_response.body
 
   while doc % 'h1:contains("running")'
-    sleep 0.5
+    sleep 5
     visit current_url
     doc = Nokogiri::HTML last_response.body
   end
 
-  sleep 0.5
+  sleep 5
 end

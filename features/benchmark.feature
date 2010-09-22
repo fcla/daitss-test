@@ -5,13 +5,10 @@ Feature: A submission and subsequent ingest operation of a known good package
     Given I goto "/submit"
     When I specifically select a <package> sip to upload
     And I press "Submit"
-    And I goto "/workspace"
+    And I click on "ingesting"
     And I choose "start"
     And I press "Update"
-    And all running wips have finished 
-    Then the package is present in the aip store
-    And there should be 0 snafu wips
-    And there should be 0 stopped wips
+    And I wait for it to finish
     Examples:
 	    |package|
       |duplicate content files by checksum|

@@ -4,15 +4,10 @@ Feature: Packages that should ingest correctly under DAITSS 2
     Given I goto "/submit"
     When I specifically select a <package> sip to upload
     And I press "Submit"
-    And I goto "/workspace"
+    And I click on "ingesting"
     And I choose "start"
     And I press "Update"
-    And all running wips have finished 
-    Then the package is present in the aip store
-    And the package is present in storage
-    And there is an event for submit
-    And there is an event for ingest started
-    And there is an event for ingest finished
+    And I wait for it to finish
       Examples:
 
       |package|
